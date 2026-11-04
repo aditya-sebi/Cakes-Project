@@ -1,0 +1,109 @@
+### all cake list api
+
+GET http://127.0.0.1:8000/cakes/
+# Authorization: Basic user user
+
+### create a cake
+POST http://127.0.0.1:8000/cakes/
+# Authorization: Token 0a64e2df5868bc4ef2ab194475b376ac9fd24934
+# Content-Type: multipart/form-data; boundary=abc
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkzNzY5OTA3LCJpYXQiOjE3OTMzMzc5MDcsImp0aSI6ImE2MDQyZjA3ODU0MTQ3NDViOWQ1ZmVjNzhhM2Q3ZjJlIiwidXNlcl9pZCI6IjEifQ.cqKXhkMFmUM4gW21FE2GW2nLS8UcLuxhIbCgreZUCyw
+Content-Type: multipart/form-data; boundary=abc
+
+
+--abc
+Content-Disposition: form-data; name="name"
+
+white forest Cake 
+--abc
+Content-Disposition: form-data; name="description"
+
+rich white chocolate
+--abc
+Content-Disposition: form-data; name="photo"; filename="image.jpg"
+Content-Type: image/jpeg
+
+< .\image.jpg
+--abc
+Content-Disposition: form-data; name="category"
+
+2
+--abc
+Content-Disposition: form-data; name="shape"
+
+1
+--abc
+Content-Disposition: form-data; name="weight"
+
+1
+--abc
+Content-Disposition: form-data; name="price"
+
+1000
+--abc--
+
+### cake retrieve api
+GET http://127.0.0.1:8000/cakes/1/
+
+
+### cake patch api
+PATCH  http://127.0.0.1:8000/cakes/1/
+Content-Type: application/json
+
+{
+    "name": "Red Velvet",
+    "description": "Yummy yummyyy",
+    "price": 1500
+}
+
+### cake delete api
+DELETE http://127.0.0.1:8000/cakes/1/
+
+### create a shape
+POST http://127.0.0.1:8000/shapes/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+round
+
+--abc
+
+### create a category
+
+POST http://127.0.0.1:8000/category/
+Authorization: Basic admin admin
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+event cakes
+
+--abc
+
+### login api
+
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"admin"
+
+}
+
+### register api
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+    "username":"welldone123@mailinator.com",
+    "first_name":"Aditya Sebi",
+    "role":"USER",
+    "password":"aditya123"
+}
+
