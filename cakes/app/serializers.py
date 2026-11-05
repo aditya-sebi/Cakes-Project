@@ -66,6 +66,16 @@ class CakeSerializer(serializers.ModelSerializer):
 
     weight = WeightField(queryset=Weight.objects.all())
 
+    status = serializers.SerializerMethodField()
+
+    def get_status(self,obj):
+
+        if obj.price < 1000 : 
+
+            return 'max saver'
+
+        return None
+
     class Meta:
 
         model = Cakes
